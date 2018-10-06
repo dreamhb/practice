@@ -24,6 +24,7 @@ public class Quicksort {
                 j--;
             } while(arr[j] > pivot);
 
+            //means all items have swaped
             if (i >= j) {
                 return j;
             }
