@@ -1,4 +1,9 @@
 public class Mergesort {
+
+    /**
+     * divide array to single item
+     *
+     **/
     public void mergesort(int[] arr, int left, int right) {
         if (left < right) {
             int middle = (left + right) / 2;
@@ -14,11 +19,12 @@ public class Mergesort {
      * */
     public void merge(int[] arr, int left, int middle, int right) {
         int lengthL = middle - left + 1;
-        int lengthR = right - middle + 1;
+        int lengthR = right - middle;
 
         int[] l = new int[lengthL];
         int[] r = new int[lengthR];
 
+        // copy subarray item to subarray
         int i = 0;
         while (i < lengthL) {
             l[i] = arr[i + left];
@@ -31,6 +37,7 @@ public class Mergesort {
             j++;
         }
 
+        //merge two subarrays and sort
         int ii = 0;
         int jj = 0;
         int index = left;
@@ -45,20 +52,20 @@ public class Mergesort {
             index++;
         }
 
-        //add rest of l
+        //add rest of l if exist
         while (ii < lengthL) {
             arr[index] = l[ii];
             ii++;
             index++;
         }
 
-        //add rest of r
+        //add rest of r if exist
         while (jj < lengthR) {
             arr[index] = r[jj];
             index++;
             jj++;
         }
 
-        //complete
+        //done
     }
 }
