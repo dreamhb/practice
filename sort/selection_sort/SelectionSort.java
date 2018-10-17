@@ -10,15 +10,22 @@ public class SelectionSort {
        for (int i = 0; i < arr.length; i++) {
             
            int min = arr[i];
-           for (int j = i + 1; j < arr.length - 1; j++) {
+           int j = i + 1;
+           int index = -1;
+           for (; j < arr.length; j++) {
                if (min > arr[j]) {
                    min = arr[j];
+                   index = j;
                }
            }
 
-           //append to the end
-           arr[i] = min;
-
+           //swap min and ...
+           //because of this swap, it is not stable
+           if (index != -1) {
+               int temp = arr[i];
+               arr[i] = min;
+               arr[index] = temp;
+           }
        }
    } 
 }

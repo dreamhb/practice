@@ -7,7 +7,7 @@ public class Test {
     static int[] arr;
     public static void main(String[] args) {
         arr = getFromInput(args);
-        insertionSort();
+        selectionSort();
         print(arr);
     }
 
@@ -22,7 +22,7 @@ public class Test {
         is.insertionSort(arr);
     }
 
-    public void selectionSort() {
+    public static void selectionSort() {
         SelectionSort ss = new SelectionSort();
         ss.sort(arr);
     }
