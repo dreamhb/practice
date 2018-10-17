@@ -1,17 +1,28 @@
 import bubble_sort.BubbleSort;
+import insertion_sort.InsertionSort;
 
 public class Test {
-    public static void main(String[] args) {
-        int[] arr = getFromInput(args);
-        BubbleSort bs = new BubbleSort();
-        bs.bubbleSort(arr);
 
+    static int[] arr;
+    public static void main(String[] args) {
+        arr = getFromInput(args);
+        insertionSort();
         print(arr);
     }
 
 
+    public void bubbleSort() {
+        BubbleSort bs = new BubbleSort();
+        bs.bubbleSort(arr);
+    }
+
+    public static void insertionSort() {
+        InsertionSort is = new InsertionSort();
+        is.insertionSort(arr);
+    }
+
     public static void print(int[] arr) {
-        System.out.println("bubble sort result: ");
+        System.out.println("sort result: ");
         for (int i: arr) {
             System.out.println(i + " " );
         }
