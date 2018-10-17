@@ -1,5 +1,6 @@
 import bubble_sort.BubbleSort;
 import insertion_sort.InsertionSort;
+import selection_sort.SelectionSort;
 
 public class Test {
 
@@ -20,6 +21,12 @@ public class Test {
         InsertionSort is = new InsertionSort();
         is.insertionSort(arr);
     }
+
+    public void selectionSort() {
+        SelectionSort ss = new SelectionSort();
+        ss.sort(arr);
+    }
+
 
     public static void print(int[] arr) {
         System.out.println("sort result: ");
