@@ -1,6 +1,6 @@
 # Bubble sort
 
-## Time Complixity
+## Time Complexity
 ### Best
 O(n)
 ### Worst
