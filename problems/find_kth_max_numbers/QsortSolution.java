@@ -13,7 +13,7 @@ public class QsortSolution {
             return arr[index];// value found
         } else if (k - 1 > index) {
             //means the kth number is in A[index+1, n-1]
-            return findKthMaxNumber(arr, k - index - 1, index + 1, arr.length - 1);
+            return findKthMaxNumber(arr, k - index - 1, index + 1, right);
         } else {
             // the kth number is arr[0, index - 1]
             return findKthMaxNumber(arr, k, 0, index - 1);
@@ -31,12 +31,12 @@ public class QsortSolution {
             //check left
             do {
                 i++;
-            } while (arr[i] < pivot);
+            } while (arr[i] > pivot);
 
             //check right
             do {
                 j--;
-            } while (arr[j] > pivot);
+            } while (arr[j] < pivot);
 
             if (i >= j) {
                 //part done
