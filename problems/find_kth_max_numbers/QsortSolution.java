@@ -7,12 +7,11 @@ public class QsortSolution {
             return -1; 
         }
         
-        if (k > 0 && k <= right - left + 1) {
+        if (k > 0 && k <= arr.length) {
 
             if (left < right) {
                 //get pivot's index
                 int index = lPart(arr, left, right);
-                System.out.println("k = " + k + " left = " + left + " index = " + index + " right = " + right);
                 if (k - 1 == index) {
                     return arr[index];
                 } else if (k - 1 > index) {
@@ -21,15 +20,19 @@ public class QsortSolution {
                     return findKthMaxNumber(arr, k, left, index - 1);
                 }
             } else {
-                return -1;
+                return arr[left];
             }
         } else {
+            System.out.println("the value of K is invalid " + k);
             return -1;
         }
     }
 
 
-    private int part(int[] arr, int left, int right) {
+    /**
+     * pivot is not all at its final position 
+     */
+    private int oPart(int[] arr, int left, int right) {
 
         int pivot = arr[left];
 
@@ -60,6 +63,9 @@ public class QsortSolution {
     }
 
 
+    /**
+     * every pivot is at its final position
+     */
     private int lPart(int[] arr, int left, int right) {
         int pivot = arr[right];
         int i = left;
