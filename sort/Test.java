@@ -1,3 +1,4 @@
+import quick_sort.QuickSort;
 import bubble_sort.BubbleSort;
 import insertion_sort.InsertionSort;
 import selection_sort.SelectionSort;
@@ -7,10 +8,14 @@ public class Test {
     static int[] arr;
     public static void main(String[] args) {
         arr = getFromInput(args);
-        selectionSort();
+        quickSort();
         print(arr);
     }
 
+    public static void quickSort() {
+        QuickSort qs = new QuickSort();
+        qs.quicksort(arr, 0, arr.length - 1);
+    }
 
     public void bubbleSort() {
         BubbleSort bs = new BubbleSort();
