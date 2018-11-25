@@ -1,32 +1,32 @@
+package heap_sort;
+
 public class HeapSort {
 
-    int heapSize = 0;
 
     void buildMaxHeap(int[] arr) {
-        for (int i = arr.length - 1; i >= 0; i--) {
-            maxHeapify(arr, i);
+        int size = arr.length;
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            maxHeapify(arr, size, i);
         }
     }
 
-    void maxHeapify(int[] arr, int index) {
-        int left = index << 1;
-        int right = index << 1 + 1;
-        int largest;
 
-        if (left <= heapSize && arr[left] > arr[index]) {
+    void maxHeapify(int[] arr, int size, int index) {
+        int left = index << 1 + 1;
+        int right = index << 1 + 2;
+        int largest = index;
+
+        if (left <= size && arr[left] > arr[index]) {
             largest = left;
-        } else {
-            largest = index;
         }
 
-        if (right <= heapSize && arr[right] > arr[index]) {
+        if (right <= size && arr[right] > arr[index]) {
             largest = right;
         }
 
         if (largest != index) {
-            heapSize++;
             swap(arr, largest, index);
-            maxHeapify(arr, index);
+            maxHeapify(arr, size, largest);
         }
 
     }
@@ -41,11 +41,15 @@ public class HeapSort {
 
     public void heapSort(int[] arr) {
         buildMaxHeap(arr);
-        int heapSize = arr.length;
-        for(int i = arr.length - 1; i > 0; i--) {
+        System.out.print("the built max heap is: ");
+        for (int k: arr) {
+            System.out.print(" " + k);
+        }
+        System.out.println();
+
+        for(int i = arr.length - 1; i >= 0; i--) {
             swap(arr, 0, i);
-            heapSize = heapSize - 1;
-            maxHeapify(arr, 0);
+            maxHeapify(arr, i, 0);
         }
     }
 }
