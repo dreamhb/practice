@@ -2,14 +2,21 @@ import quick_sort.QuickSort;
 import bubble_sort.BubbleSort;
 import insertion_sort.InsertionSort;
 import selection_sort.SelectionSort;
+import heap_sort.HeapSort;
 
 public class Test {
 
     static int[] arr;
     public static void main(String[] args) {
         arr = getFromInput(args);
-        quickSort();
+        //quickSort();
+        heapSort();
         print(arr);
+    }
+
+    public static void heapSort() {
+        HeapSort hs = new HeapSort();
+        hs.heapSort(arr);
     }
 
     public static void quickSort() {

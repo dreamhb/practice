@@ -12,15 +12,15 @@ public class HeapSort {
 
 
     void maxHeapify(int[] arr, int size, int index) {
-        int left = index << 1 + 1;
-        int right = index << 1 + 2;
+        int left = (index << 1) + 1;
+        int right = (index << 1) + 2;
         int largest = index;
 
-        if (left <= size && arr[left] > arr[index]) {
+        if (left < size && arr[left] > arr[largest]) {
             largest = left;
         }
 
-        if (right <= size && arr[right] > arr[index]) {
+        if (right < size && arr[right] > arr[largest]) {
             largest = right;
         }
 
