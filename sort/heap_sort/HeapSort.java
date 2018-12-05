@@ -37,14 +37,16 @@ public class HeapSort {
 
     void topBottomHeapify(int[] arr, int size, int index) {
 
+        int left = 2 * index + 1;
+        int right = 2 * index + 2;
         while (true) {
             int largest = index;
-            if (index * 2 <= size && arr[index * 2] > arr[index]) {
-                largest = index * 2;
+            if (left <= size && arr[left] > arr[index]) {
+                largest = left;
             }
 
-            if (index * 2 + 1 <= size && arr[index * 2 + 1] > arr[largest]) {
-                largest = index * 2 + 1;
+            if (right <= size && arr[right] > arr[largest]) {
+                largest = right;
             }
 
             if (largest != index) {
