@@ -2,7 +2,7 @@
 Dynamic programming is an algorithm design method, it's very suitable for optimization problems, 
 such as maximum minimum and shortest path etc. 
 
-Using dynamic programming can dramaticlly lower the time complexity of the algorithms above. 
+Using dynamic programming can dramatically lower the time complexity of the algorithms above. 
 
 #### Two methods:
 ###### Top Down (memo) 
