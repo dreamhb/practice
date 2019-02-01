@@ -1,9 +1,13 @@
-public class KnapSack {
+public class Knapsack {
     static int max(int a, int b) {
         return a > b ? a : b;
     }
 
 
+    /**
+     * brute force
+     *
+     * */
     static int knapSack(int W, int[] wt, int[] val, int n) {
         if (n == 0 || W == 0) {
             return 0;
@@ -36,6 +40,39 @@ public class KnapSack {
                 }
             }
         }
+    }
+
+
+    /**
+     * dynamic programming bottom up
+     *
+     * */
+    private static int knapsackBU(int[] v, int[] w, int W) {
+        int[][] M = new int[v.length+1][W+1];
+
+        //get max value equal to or less than j and the first i items
+        for (int i = 1; i <= v.length; i++)
+            for ( int j = 0; j <= W; j++) {
+                
+                if (w[i-1] > j) {
+                    //don't include ith item, using previous max value
+                    M[i][j] = M[i-1][j];
+                } else {
+                    M[i][j] = max(M[i-1][j], //exclude ith item
+                            M[i-1][j - w[i-1]] + v[i-1]);//include ith item
+                }
+
+            }
+        return M[v.length][W];
+    }
+    
+
+    /**
+     * dynamic programming top down
+     *
+     * */
+    private static int knapsackTB(int[] v, int[] w, String key, Map<String, Integer> lookup) {
+        
     }
 
     public static void main(String[] args) {
