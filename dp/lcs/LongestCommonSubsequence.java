@@ -11,7 +11,7 @@ public class LongestCommonSubsequence {
             for (int j = 0; j <= n; j++) {
                 if (i == 0 || j == 0) {
                     Z[i][j] = 0;
-                } else if (X[i] == Y[j]) {
+                } else if (X[i-1] == Y[j-1]) {
                     Z[i][j] = Z[i-1][j-1] + 1;
                 } else {
                     Z[i][j] = max(Z[i-1][j], Z[i][j-1]);
