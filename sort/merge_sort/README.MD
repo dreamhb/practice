@@ -1,6 +1,6 @@
 # Merge sort 
 
-divide and conqure, comparision based sorting algothrims
+divide and conquer, comparision based sorting algothrims
 
 ### time complexity
 
