@@ -13,6 +13,7 @@ public class HeapSort {
     
     /**
      * using recursive and from top to bottom
+     * time complexity is equal to the height of tree, is logn
      * */
     void maxHeapify(int[] arr, int size, int index) {
         int left = (index << 1) + 1;
