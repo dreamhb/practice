@@ -1,4 +1,4 @@
-# DP problems: 0-1 KnapStack Problem  
+# DP problems: 0-1 KnapSack Problem  
 If a problem has two following characteristics:
 *   Optimal structure
 *   Overlapping subproblems
