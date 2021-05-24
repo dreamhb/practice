@@ -75,32 +75,26 @@ public class Knapsack {
      * @param W is the capacity
      * */
     private static int knapsackBU(int W, int[] w, int[] v) {
-        //
-        int[][] M = new int[v.length][W+1];
-
-        for (int i = 1; i < v.length; i++) {
-            M[i][0] = 0;
-        }
-
-        for (int j = 0; j <= W; j++) {
-            M[0][j] = 0;
-        }
+        int[][] M = new int[v.length+1][W+1];
 
         //get max value equal to or less than j and the first i items
-        for (int i = 1; i < v.length; i++)
+        for (int i = 0; i <= v.length; i++)
             for (int j = 0; j <= W; j++) {
-                if (w[i] > j) {
+                if(i == 0 || j == 0) {
+                    M[i][j] = 0;
+                }
+                else if (w[i-1] > j) {
                     //don't include ith item, using previous max value
                     M[i][j] = M[i-1][j];
                 } else {
                     M[i][j] = max(
                             M[i-1][j], //exclude ith item
-                            M[i-1][j - w[i]] + v[i]//include ith item
+                            M[i-1][j - w[i-1]] + v[i-1]//include ith item
                             );
                 }
 
             }
-        return M[v.length-1][W];
+        return M[v.length][W];
     }
 
     public static void main(String[] args) {
